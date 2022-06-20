@@ -6,12 +6,14 @@ on:
 
 jobs:
   feature-test:
+    name: "Feature Test"
     runs-on: ubuntu-latest
     steps:
       - uses: cumulusci-actions/feature-test@main
         with:
           dev-hub-auth-url: ${{ secrets.dev-hub-auth-url }}
   feature-test-namespaced:
+    name: "Feature Test - Namespaced"
     runs-on: ubuntu-latest
     steps:
       - uses: cumulusci-actions/feature-test-namespaced@main
