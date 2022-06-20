@@ -1,0 +1,28 @@
+name: Upload Beta Release (1GP)
+on:
+  workflow_call:
+    secrets:
+      org:
+        required: True
+      dev-hub-auth-url: 
+        required: True
+
+jobs:
+  upload-beta-release-1gp:
+    name: "Upload Beta Release (1GP)"
+    environment: packaging
+    concurrency: packaging
+    runs-on: ubuntu-latest
+    steps:
+      - uses: cumulusci-actions/release-beta-1gp@main
+        with:
+          org: '${{ secrets.ORG_JSON }}'
+  beta-test:
+    name: "Beta Test"
+    needs:
+      - upload-beta-release-1gp
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: cumulusci-actions/beta-test@main
+        with:
+          dev-hub-auth-url: ${{ secrets.DEV_HUB_AUTH_URL }}
