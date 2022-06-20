@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: cumulusci-actions/release-beta-1gp@main
         with:
-          org: '${{ secrets.ORG_JSON }}'
+          org: '${{ secrets.org }}'
   beta-test:
     name: "Beta Test"
     needs:
@@ -25,4 +25,4 @@ jobs:
     steps: 
       - uses: cumulusci-actions/beta-test@main
         with:
-          dev-hub-auth-url: ${{ secrets.DEV_HUB_AUTH_URL }}
+          dev-hub-auth-url: ${{ secrets.dev-hub-auth-url }}
