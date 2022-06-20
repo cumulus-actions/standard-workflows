@@ -1,0 +1,19 @@
+on:
+  workflow_call:
+    # This means that the workflow cannot be used across org boundaries:
+    # orgs must fork this repo locally.
+    secrets: inherit
+
+jobs:
+  feature-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: cumulusci-actions/feature-test@main
+        with:
+          dev-hub-auth-url: ${{ secrets.DEV_HUB_AUTH_URL }}
+  feature-test-namespaced:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: cumulusci-actions/feature-test-namespaced@main
+        with:
+          dev-hub-auth-url: ${{ secrets.DEV_HUB_AUTH_URL }}
