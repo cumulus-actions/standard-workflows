@@ -1,0 +1,23 @@
+on:
+  workflow_call:
+    inputs:
+      cumulusci-version:
+        required: false
+        type: string
+      sfdx-version:
+        required: false
+        type: string
+    secrets:
+      dev-hub-auth-url:
+        required: true
+
+jobs:
+  feature-test:
+    name: "Feature Test"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: cumulus-actions/feature-test@v1
+        with:
+          dev-hub-auth-url: '${{ secrets.dev-hub-auth-url }}'
+          cumulusci-version: '${{ inputs.cumulusci-version }}'
+          sfdx-version: '${{ inputs.sfdx-version }}'
