@@ -1,8 +1,15 @@
 on:
   workflow_call:
+    inputs:
+      cumulusci-version:
+        required: false
+        type: string
+      sfdx-version:
+        required: false
+        type: string
     secrets:
       dev-hub-auth-url:
-        required: True
+        required: true
 
 jobs:
   feature-test:
@@ -11,14 +18,9 @@ jobs:
     steps:
       - uses: cumulus-actions/feature-test@v1
         with:
-          dev-hub-auth-url: ${{ secrets.dev-hub-auth-url }}
-  feature-test-robot:
-    name: "Feature Test - Robot"
-    runs-on: ubuntu-latest
-    steps:
-      - uses: cumulus-actions/feature-test-robot@v1
-        with:
-          dev-hub-auth-url: ${{ secrets.dev-hub-auth-url }}
+          dev-hub-auth-url: '${{ secrets.dev-hub-auth-url }}'
+          cumulusci-version: '${{ inputs.cumulusci-version }}'
+          sfdx-version: '${{ inputs.sfdx-version }}'
   build-feature-test-package:
     name: "Build Feature Test Package"
     runs-on: ubuntu-latest
@@ -26,6 +28,8 @@ jobs:
       - uses: cumulus-actions/build-feature-test-package@v1
         with:
           dev-hub-auth-url: ${{ secrets.dev-hub-auth-url }}
+          cumulusci-version: '${{ inputs.cumulusci-version }}'
+          sfdx-version: '${{ inputs.sfdx-version }}'
   feature-test-2gp:
     name: "Feature Test - 2GP"
     runs-on: ubuntu-latest
@@ -35,6 +39,8 @@ jobs:
       - uses: cumulus-actions/feature-test-2gp@v1
         with:
           dev-hub-auth-url: ${{ secrets.dev-hub-auth-url }}
+          cumulusci-version: '${{ inputs.cumulusci-version }}'
+          sfdx-version: '${{ inputs.sfdx-version }}'
   feature-test-robot-2gp:
     name: "Feature Test - Robot 2GP"
     runs-on: ubuntu-latest
@@ -44,3 +50,5 @@ jobs:
       - uses: cumulus-actions/feature-test-robot-2gp@v1
         with:
           dev-hub-auth-url: ${{ secrets.dev-hub-auth-url }}
+          cumulusci-version: '${{ inputs.cumulusci-version }}'
+          sfdx-version: '${{ inputs.sfdx-version }}'
