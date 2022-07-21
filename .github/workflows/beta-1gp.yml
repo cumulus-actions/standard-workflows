@@ -13,7 +13,7 @@ jobs:
     concurrency: packaging
     runs-on: ubuntu-latest
     steps:
-      - uses: cumulusci-actions/release-beta-1gp@main
+      - uses: cumulus-actions/release-beta-1gp@v1
         with:
           packaging-auth-url: '${{ secrets.packaging-auth-url }}'
   beta-test:
@@ -22,6 +22,6 @@ jobs:
       - upload-beta-release-1gp
     runs-on: ubuntu-latest
     steps: 
-      - uses: cumulusci-actions/beta-test@main
+      - uses: cumulus-actions/beta-test@v1
         with:
-          dev-hub-auth-url: ${{ secrets.dev-hub-auth-url }}
+          dev-hub-auth-url: '${{ secrets.dev-hub-auth-url }}'
