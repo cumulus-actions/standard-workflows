@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: cumulus-actions/release-beta-1gp@v1
         with:
-          packaging-auth-url: '${{ secrets.packaging-auth-url }}'
+          packaging-org-auth-url: '${{ secrets.packaging-auth-url }}'
   beta-test:
     name: "Beta Test"
     needs:
