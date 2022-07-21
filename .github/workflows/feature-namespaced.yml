@@ -9,13 +9,13 @@ jobs:
     name: "Feature Test"
     runs-on: ubuntu-latest
     steps:
-      - uses: cumulusci-actions/feature-test@main
+      - uses: cumulus-actions/feature-test@v1
         with:
           dev-hub-auth-url: ${{ secrets.dev-hub-auth-url }}
   feature-test-namespaced:
     name: "Feature Test - Namespaced"
     runs-on: ubuntu-latest
     steps:
-      - uses: cumulusci-actions/feature-test-namespaced@main
+      - uses: cumulus-actions/feature-test-namespaced@v1
         with:
           dev-hub-auth-url: ${{ secrets.dev-hub-auth-url }}
