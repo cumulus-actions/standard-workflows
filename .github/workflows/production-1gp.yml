@@ -3,7 +3,7 @@ on:
     secrets:
       dev-hub-auth-url:
         required: True
-      packaging-auth-url:
+      packaging-org-auth-url:
         required: True
 
 jobs:
@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: cumulus-actions/release-production-1gp@v1
         with:
-          packaging-org-auth-url: '${{ secrets.packaging-auth-url }}'
+          packaging-org-auth-url: '${{ secrets.packaging-org-auth-url }}'
   release-test:
     name: "Release Test"
     needs:
