@@ -9,7 +9,7 @@ on:
 jobs:
   upload-production-release-1gp:
     name: "Upload Production Release (1GP)"
-    environment: packaging
+    environment: packaging-prod
     concurrency: packaging
     runs-on: ubuntu-latest
     steps:
