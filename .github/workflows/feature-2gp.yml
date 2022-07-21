@@ -9,21 +9,21 @@ jobs:
     name: "Feature Test"
     runs-on: ubuntu-latest
     steps:
-      - uses: cumulusci-actions/feature-test@main
+      - uses: cumulus-actions/feature-test@v1
         with:
           dev-hub-auth-url: ${{ secrets.dev-hub-auth-url }}
   feature-test-robot:
     name: "Feature Test - Robot"
     runs-on: ubuntu-latest
     steps:
-      - uses: cumulusci-actions/feature-test-robot@main
+      - uses: cumulus-actions/feature-test-robot@v1
         with:
           dev-hub-auth-url: ${{ secrets.dev-hub-auth-url }}
   build-feature-test-package:
     name: "Build Feature Test Package"
     runs-on: ubuntu-latest
     steps:
-      - uses: cumulusci-actions/build-feature-test-package@main
+      - uses: cumulus-actions/build-feature-test-package@v1
         with:
           dev-hub-auth-url: ${{ secrets.dev-hub-auth-url }}
   feature-test-2gp:
@@ -32,7 +32,7 @@ jobs:
     needs:
       - build-feature-test-package
     steps:
-      - uses: cumulusci-actions/feature-test-2gp@main
+      - uses: cumulus-actions/feature-test-2gp@v1
         with:
           dev-hub-auth-url: ${{ secrets.dev-hub-auth-url }}
   feature-test-robot-2gp:
@@ -41,6 +41,6 @@ jobs:
     needs:
       - build-feature-test-package
     steps:
-      - uses: cumulusci-actions/feature-test-robot-2gp@main
+      - uses: cumulus-actions/feature-test-robot-2gp@v1
         with:
           dev-hub-auth-url: ${{ secrets.dev-hub-auth-url }}
