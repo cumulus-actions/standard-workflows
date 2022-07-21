@@ -1,7 +1,7 @@
 on:
   workflow_call:
     secrets:
-      packaging-auth-url:
+      packaging-org-auth-url:
         required: True
       dev-hub-auth-url: 
         required: True
@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: cumulus-actions/release-beta-1gp@v1
         with:
-          packaging-org-auth-url: '${{ secrets.packaging-auth-url }}'
+          packaging-org-auth-url: '${{ secrets.packaging-org-auth-url }}'
   beta-test:
     name: "Beta Test"
     needs:
