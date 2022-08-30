@@ -7,7 +7,7 @@ on:
 jobs:
   upload-production-release-2gp:
     name: "Upload Production Release (2GP)"
-    environment: packaging
+    environment: packaging-prod
     concurrency: packaging
     runs-on: ubuntu-latest
     steps:
