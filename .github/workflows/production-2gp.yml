@@ -22,4 +22,4 @@ jobs:
     steps: 
       - uses: cumulus-actions/release-test@v1
         with:
-          dev-hub-auth-url: ${{ secrets.dev-hub-auth-url }}
+          dev-hub-auth-url: '${{ secrets.dev-hub-auth-url }}'
