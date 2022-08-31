@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: cumulus-actions/release-production-2gp@v1
         with:
-          packaging-org-auth-url: '${{ secrets.dev-hub-auth-url }}'
+          dev-hub-auth-url: '${{ secrets.dev-hub-auth-url }}'
   release-test:
     name: "Release Test"
     needs:
