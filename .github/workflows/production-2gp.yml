@@ -7,13 +7,13 @@ on:
 jobs:
   upload-production-release-2gp:
     name: "Upload Production Release (2GP)"
-    environment: packaging
+    environment: packaging-prod
     concurrency: packaging
     runs-on: ubuntu-latest
     steps:
       - uses: cumulus-actions/release-production-2gp@v1
         with:
-          packaging-org-auth-url: '${{ secrets.dev-hub-auth-url }}'
+          dev-hub-auth-url: '${{ secrets.dev-hub-auth-url }}'
   release-test:
     name: "Release Test"
     needs:
@@ -22,4 +22,4 @@ jobs:
     steps: 
       - uses: cumulus-actions/release-test@v1
         with:
-          dev-hub-auth-url: ${{ secrets.dev-hub-auth-url }}
+          dev-hub-auth-url: '${{ secrets.dev-hub-auth-url }}'
